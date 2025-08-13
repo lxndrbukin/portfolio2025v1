@@ -4,7 +4,7 @@ import {
   faGithub,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
-import Skills from "./Skills";
+import Skills from "./Skills/Skills";
 
 const socials = [
   { name: "GitHub", icon: faGithub, url: "" },
