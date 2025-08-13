@@ -4,6 +4,7 @@ import {
   faGithub,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
+import Skills from "./Skills";
 
 const socials = [
   { name: "GitHub", icon: faGithub, url: "" },
@@ -43,9 +44,10 @@ export default function About() {
           reading Tech-related books and learning new techologies and exploring
           the world of Web Development.
         </p>
+        <Skills />
       </div>
       <div className="grid gap-2">
-        <div className="dark:bg-sky-500/50 h-[270px] w-[270px] rounded-xl relative overflow-hidden justify-self-end">
+        <div className="dark:bg-sky-500/50 h-[270px] w-[270px] rounded-xl relative overflow-hidden justify-self-center">
           <img
             src="https://www.lxndrbukin.com/static/media/hellothere.3c958dea26d332d7d0d7.png"
             alt=""
