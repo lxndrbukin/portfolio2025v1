@@ -1,28 +1,17 @@
 "use client";
+import styles from "./styles.module.css";
 import Marquee from "react-fast-marquee";
 
-const skillsList = [
-  {
-    name: "JavaScript",
-    icon: "https://img.icons8.com/?size=256&id=108784&format=png",
-  },
-  {
-    name: "TypeScript",
-    icon: "https://img.icons8.com/?size=256&id=uJM6fQYqDaZK&format=png",
-  },
-  {
-    name: "React",
-    icon: "https://img.icons8.com/?size=256&id=123603&format=png",
-  },
-  {
-    name: "Python",
-    icon: "https://img.icons8.com/?size=256&id=13441&format=png",
-  },
-];
+type Skill = {
+  name: string;
+  icon: string;
+};
 
-export default function Skills() {
+type SkillsProps = { skills: Skill[] };
+
+export default function Skills({ skills }: SkillsProps) {
   const renderSkills = () => {
-    return skillsList.map((skill) => {
+    return skills.map((skill) => {
       return (
         <li className="dark:bg-[#201f2f] p-1 rounded-xl mx-1" key={skill.name}>
           <img
@@ -37,7 +26,9 @@ export default function Skills() {
   };
 
   return (
-    <div className=" dark:bg-[#191828] p-3 rounded-xl">
+    <div
+      className={`dark:bg-[#191828] p-3 rounded-xl ${styles.skills} overflow-hidden`}
+    >
       <Marquee pauseOnHover autoFill>
         <ul className="flex">{renderSkills()}</ul>
       </Marquee>

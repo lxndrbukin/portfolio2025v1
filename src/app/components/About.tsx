@@ -1,3 +1,4 @@
+import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faInstagram,
@@ -12,7 +13,13 @@ const socials = [
   { name: "Instagram", icon: faInstagram, url: "" },
 ];
 
-export default function About() {
+type Skill = { name: string; icon: string };
+
+export default async function About() {
+  const { data: skills } = await axios.get<Skill[]>(
+    "https://lxndrbukin-github-io.vercel.app/apis/skills.json"
+  );
+
   const renderIcons = () => {
     return socials.map((social) => {
       return (
@@ -33,7 +40,7 @@ export default function About() {
 
   return (
     <section className="grid grid-cols-(--about-grid-cols) pt-[140px]">
-      <div>
+      <div className="flex flex-col">
         <div className="flex flex-col font-bold text-4xl">
           <span>Hi, I'm Alex</span>
           <span>Front-end Developer</span>
@@ -44,7 +51,7 @@ export default function About() {
           reading Tech-related books and learning new techologies and exploring
           the world of Web Development.
         </p>
-        <Skills />
+        <Skills skills={skills} />
       </div>
       <div className="grid gap-2">
         <div className="dark:bg-sky-500/50 h-[270px] w-[270px] rounded-xl relative overflow-hidden justify-self-center">
