@@ -26,12 +26,14 @@ export default function Skills({ skills }: SkillsProps) {
   };
 
   return (
-    <div
-      className={`dark:bg-[#191828] p-3 rounded-xl ${styles.skills} overflow-hidden`}
-    >
-      <Marquee pauseOnHover autoFill>
-        <ul className="flex">{renderSkills()}</ul>
-      </Marquee>
+    <div>
+      <div
+        className={`dark:bg-[#191828] p-3 rounded-xl ${styles.skills} overflow-hidden`}
+      >
+        <Marquee pauseOnHover autoFill>
+          <ul className="flex">{renderSkills()}</ul>
+        </Marquee>
+      </div>
     </div>
   );
 }
